@@ -1,4 +1,4 @@
-package pl.javastart.task;
+package pl.javastart.task.phonelogic;
 
 public class Phone {
 
@@ -11,20 +11,20 @@ public class Phone {
         this.contract = contract;
     }
 
-    void printAccountState() {
+    public void printAccountState() {
         System.out.println("=== STAN KONTA ===\nWysłanych SMSów: " + smsCounter + "\nWysłanych MMSów: " + mmsCounter +
                 "\nLiczba sekund rozmowy: " + callSecondsCounter);
         contract.printAccountState();
     }
 
-    void sendSms() {
+    public void sendSms() {
         if (contract.canSmsBeSent()) {
             contract.sendSms();
             smsCounter++;
         }
     }
 
-    void call(int seconds) {
+    public void call(int seconds) {
         if (contract.canCallBeMade(seconds)) {
             contract.call(seconds);
             callSecondsCounter += seconds;
@@ -33,7 +33,7 @@ public class Phone {
         }
     }
 
-    void sendMms() {
+    public void sendMms() {
         if (contract.canMmsBeSent()) {
             contract.sendMms();
             mmsCounter++;

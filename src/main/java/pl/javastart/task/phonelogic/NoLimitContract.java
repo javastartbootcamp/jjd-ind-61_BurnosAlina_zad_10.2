@@ -1,4 +1,4 @@
-package pl.javastart.task;
+package pl.javastart.task.phonelogic;
 
 public class NoLimitContract implements Contract {
 

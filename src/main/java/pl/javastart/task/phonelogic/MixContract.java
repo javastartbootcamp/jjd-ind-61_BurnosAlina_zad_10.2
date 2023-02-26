@@ -1,4 +1,4 @@
-package pl.javastart.task;
+package pl.javastart.task.phonelogic;
 
 public class MixContract extends CardPhoneContract {
 
@@ -22,6 +22,14 @@ public class MixContract extends CardPhoneContract {
     }
 
     @Override
+    public boolean canSmsBeSent() {
+        if (smsAmount > 0) {
+            return true;
+        }
+        return super.canSmsBeSent();
+    }
+
+    @Override
     public void sendSms() {
         if (smsAmount > 0) {
             System.out.println("SMS wysłany");
@@ -32,6 +40,14 @@ public class MixContract extends CardPhoneContract {
     }
 
     @Override
+    public boolean canCallBeMade(int seconds) {
+        if (seconds <= callMinutesAmount * SECONDS_IN_MINUTE) {
+            return true;
+        }
+        return super.canCallBeMade(seconds);
+    }
+
+    @Override
     public void call(int seconds) {
         if (seconds <= callMinutesAmount * SECONDS_IN_MINUTE) {
             System.out.println("Rozmowa trwała " + seconds + " sekund");
@@ -39,6 +55,14 @@ public class MixContract extends CardPhoneContract {
         } else {
             super.call(seconds);
         }
+    }
+
+    @Override
+    public boolean canMmsBeSent() {
+        if (mmsAmount > 0) {
+            return true;
+        }
+        return super.canMmsBeSent();
     }
 
     @Override
