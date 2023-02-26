@@ -15,5 +15,4 @@ interface Contract {
     void sendMms();
 
     boolean canMmsBeSent();
-
 }

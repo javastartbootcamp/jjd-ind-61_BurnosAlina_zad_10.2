@@ -13,7 +13,6 @@ public class NoLimitContract implements Contract {
         System.out.println("Miesięczny abonament: " + monthlyPayment);
     }
 
-    @Override
     public boolean canSmsBeSent() {
         return true;
     }
